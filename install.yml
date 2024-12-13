@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: true
+  pre_tasks: # The hashtags below signifies that those roles are already done installing
+
+  - name: update repository index (Ubuntu)
+    tags: always
+    apt:
+      update_cache: yes
+    changed_when: false
+    when: ansible_distribution == "Ubuntu"
+
+- hosts: UbuntuServers
+  become: true
+  roles:
+    #- UbuntuNeu
+    #- UbuntuHori
+    - UbuntuCind

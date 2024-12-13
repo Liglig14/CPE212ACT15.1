@@ -1,0 +1,9 @@
+---
+- name: Install Cinder packages
+  apt:
+    name:
+      - cinder-api
+      - cinder-scheduler
+      - cinder-volume
+    state: present
+

@@ -1,0 +1,11 @@
+---
+- name: Install Horizon package
+  apt:
+    name: openstack-dashboard
+    state: present
+
+- name: Enable and start Apache service
+  systemd:
+    name: apache2
+    state: started
+    enabled: yes

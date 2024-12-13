@@ -1,0 +1,27 @@
+---
+- name: Install Neutron packages
+  apt:
+    name:
+      - neutron-server
+      - neutron-plugin-ml2
+      - neutron-linuxbridge-agent
+      - neutron-openvswitch-agent
+    state: present
+
+- name: Enable and start Neutron server service
+  systemd:
+    name: neutron-server
+    state: started
+    enabled: yes
+
+- name: Enable and start Neutron Linux Bridge agent service
+  systemd:
+    name: neutron-linuxbridge-agent
+    state: started
+    enabled: yes
+
+- name: Enable and start Neutron OVS agent service
+  systemd:
+    name: neutron-openvswitch-agent
+    state: started
+    enabled: yes
